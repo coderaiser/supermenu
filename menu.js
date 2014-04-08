@@ -49,14 +49,15 @@ var MenuProto, Util;
                 menu        = '',
                 items       = '',
                 buildItems  = function(menuData) {
-                    var name, isObj, data,
-                        className   = '',
-                        subitems    = '',
+                    var name, isObj, data, subitems, className,
                         items       = '';
                     
                     for (name in menuData) {
-                        data    = menuData[name];
-                        isObj   = Util.isObject(data);
+                        subitems    = '';
+                        className   = '';
+                        
+                        data        = menuData[name];
+                        isObj       = Util.isObject(data);
                         
                         if (isObj) {
                             subitems    = Util.render(TEMPLATE.MAIN, {
@@ -70,7 +71,7 @@ var MenuProto, Util;
                         
                         items       += Util.render(TEMPLATE.ITEM, {
                             'name'      : name,
-                            'subitems' : subitems,
+                            'subitems'  : subitems,
                             'className' : className
                         });
                     }

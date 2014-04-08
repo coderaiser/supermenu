@@ -18,7 +18,7 @@ var MenuProto;
         'download': {
             'github': {
                 'gist': function() {
-                    console.log('*gist');}
+                    console.log('*gist');
                 },
                 'main': function() {
                     console.log('*main');
@@ -26,6 +26,7 @@ var MenuProto;
             },
             'dropbox': function() {
                 console.log('*dropbox');
-            },
+            }
+        }
     });
 })();
