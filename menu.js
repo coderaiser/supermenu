@@ -280,10 +280,13 @@ var MenuProto, Util;
                 
             if (is.sub) {
                 event.preventDefault();
-            } else if (is.name || is.item) {
+            } else {
                 hideMenuElement();
-                itemData = getMenuItemData(element);
-                Util.exec(itemData);
+                
+                if (is.name || is.item) {
+                    itemData = getMenuItemData(element);
+                    Util.exec(itemData);
+                }
             }
         }
         
