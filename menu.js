@@ -14,7 +14,7 @@ var MenuProto, Util;
                 MAIN:   '<ul id="js-menu" class="menu menu-hidden">'                    +
                             '{{ items }}'                                               +
                         '</ul>',
-                ITEM:   '<li id="js-menu-{{ name }}" class="menu-item{{ className }}">' +
+                ITEM:   '<li id="js-menu-{{ name }}" class="menu-item{{ className }}" {{ attribute }}>' +
                             '<label>{{ name }}</label>'                                 +
                             '{{ subitems }}'                                            +
                         '</li>'
@@ -49,12 +49,13 @@ var MenuProto, Util;
                 menu        = '',
                 items       = '',
                 buildItems  = function(menuData) {
-                    var name, isObj, data, subitems, className,
+                    var name, isObj, data, subitems, className, attribute,
                         items       = '';
                     
                     for (name in menuData) {
                         subitems    = '';
                         className   = '';
+                        attribute   = '';
                         
                         data        = menuData[name];
                         isObj       = Util.isObject(data);
@@ -65,6 +66,7 @@ var MenuProto, Util;
                             });
                             
                             className   = ' menu-submenu';
+                            attribute   = ' data-menu=js-submenu';
                         } else {
                             MenuFuncs[name] = data;
                         }
@@ -72,7 +74,8 @@ var MenuProto, Util;
                         items       += Util.render(TEMPLATE.ITEM, {
                             'name'      : name,
                             'subitems'  : subitems,
-                            'className' : className
+                            'className' : className,
+                            'attribute' : attribute,
                         });
                     }
                     
@@ -95,13 +98,19 @@ var MenuProto, Util;
         this.hide   = hideMenuElement;
         
         function onClick(event) {
-            var itemData;
+            var itemData,
+                element = event.target,
+                data    = element.getAttribute('data-menu');
             
-            hideMenuElement();
-            
-            itemData = getMenuItemData(event.target);
-            
-            Util.exec(itemData);
+            if (data === 'js-sumbenu') {
+                event.preventDefault();
+            } else {
+                hideMenuElement();
+                
+                itemData = getMenuItemData(element);
+                
+                Util.exec(itemData);
+            }
         }
         
         function onContextMenu(event) {
