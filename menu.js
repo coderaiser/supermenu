@@ -6,17 +6,16 @@ var MenuProto, Util;
     MenuProto = function(element, menuData) {
         var ElementMenu,
             Element,
+            ElementFuncs    = new ElementFuncsProto(),
             ElementEvent,
             MenuFuncs       = {},
-            MENU_ITEM_NAME  = 'js-menu-item',
-            MENU_NAME       = 'js-menu',
             TEMPLATE        = {
-                MAIN:   '<ul id="js-menu" class="menu menu-hidden">'                    +
-                            '{{ items }}'                                               +
+                MAIN:   '<ul id="js-menu" class="menu menu-hidden">'                                    +
+                            '{{ items }}'                                                               +
                         '</ul>',
-                ITEM:   '<li id="js-menu-{{ name }}" class="menu-item{{ className }}" {{ attribute }}>' +
-                            '<label>{{ name }}</label>'                                 +
-                            '{{ subitems }}'                                            +
+                ITEM:   '<li id="js-menu-{{ name }}" class="menu-item{{ className }}"{{ attribute }}>'  +
+                            '<label data-menu-path={{ path }}>{{ name }}</label>'                                      +
+                            '{{ subitems }}'                                                            +
                         '</li>'
             };
         
@@ -48,34 +47,42 @@ var MenuProto, Util;
             var elementMenu,
                 menu        = '',
                 items       = '',
-                buildItems  = function(menuData) {
-                    var name, isObj, data, subitems, className, attribute,
+                buildItems  = function(menuData, path) {
+                    var name, isObj, data, subitems, className, attribute, pathName,
+                        DATA_MENU   = 'data-menu="js-submenu"',
                         items       = '';
+                    
+                    if (path)
+                        path        += '.';
+                    else
+                        path        = '';
                     
                     for (name in menuData) {
                         subitems    = '';
                         className   = '';
                         attribute   = '';
+                        pathName    = path + name;
                         
                         data        = menuData[name];
                         isObj       = Util.isObject(data);
                         
-                        if (isObj) {
+                        if (!isObj) {
+                            MenuFuncs[pathName] = data;
+                        } else {
                             subitems    = Util.render(TEMPLATE.MAIN, {
-                                items: buildItems(data)
+                                items: buildItems(data, pathName)
                             });
                             
                             className   = ' menu-submenu';
-                            attribute   = ' data-menu=js-submenu';
-                        } else {
-                            MenuFuncs[name] = data;
+                            attribute   = ' ' + DATA_MENU;
                         }
                         
-                        items       += Util.render(TEMPLATE.ITEM, {
-                            'name'      : name,
-                            'subitems'  : subitems,
-                            'className' : className,
-                            'attribute' : attribute,
+                        items           += Util.render(TEMPLATE.ITEM, {
+                            name        : name,
+                            subitems    : subitems,
+                            className   : className,
+                            attribute   : attribute,
+                            path        : pathName
                         });
                     }
                     
@@ -99,10 +106,10 @@ var MenuProto, Util;
         
         function onClick(event) {
             var itemData,
-                element = event.target,
-                data    = element.getAttribute('data-menu');
+                element = ElementFuncs.getItem(event.target),
+                isSub   = ElementFuncs.isSubMenu(element);
             
-            if (data === 'js-sumbenu') {
+            if (isSub) {
                 event.preventDefault();
             } else {
                 hideMenuElement();
@@ -114,20 +121,25 @@ var MenuProto, Util;
         }
         
         function onContextMenu(event) {
-            var itemData,
-                x   = event.x,
-                y   = event.y;
+            var itemData, isName,
+                element = event.target,
+                x       = event.x,
+                y       = event.y;
             
             hideMenuElement();
             
             ElementMenu.style.left     = x - 5 +'.px';
             ElementMenu.style.top      = y - 5 + '.px';
             
-            itemData = getMenuItemData(event.target);
             
-            if (itemData)
-                Util.exec(itemData);
-            else
+            isName = ElementFuncs.isName(element);
+                
+            if (isName) {
+                itemData = getMenuItemData(element);
+            
+                if (itemData)
+                    Util.exec(itemData);
+            } else
                 showMenuElement();
             
             event.preventDefault();
@@ -141,31 +153,77 @@ var MenuProto, Util;
             ElementMenu.classList.add('menu-hidden');
         }
         
-        function getMenuItemData(target) {
-            var label, data, parent, idParent, isLabel,
-                isMenuNameId, isMenuItemId;
+        function getMenuItemData(element) {
+            var path, data;
             
-            if (target) {
-                parent          = target.parentElement,
-                idParent        = parent && parent.id,
-                isMenuItemId    = idParent === MENU_ITEM_NAME,
-                isMenuNameId    = idParent === MENU_NAME,
-                isLabel         = target.tagName === 'LABEL';
-                
-                if (isMenuItemId) {
-                    data        = target.textContent;
-                } else if (isMenuNameId) {
-                    label       = target.querySelector('label');
-                    data        = label.textContent;
-                } else if(isLabel) {
-                    data        = MenuFuncs[target.textContent];
-                }
+            element     = ElementFuncs.getName(element);
+            
+            if (element) {
+                path    = element.getAttribute('data-menu-path');
             }
+            
+            data        = MenuFuncs[path];
             
             return data;
         }
         
         init();
     };
+    
+    function ElementFuncsProto() {
+        this.getItem    = getItem;
+        this.getName    = getName;
+        this.isName     = isName;
+        this.isSubMenu  = isSubMenu;
+         
+         function getItem(element) {
+            var isNameElement;
+            
+            if (element) {
+                isNameElement = isName(element);
+                
+                if (isName)
+                    element = element.parentElement;
+            }
+            
+            return element;
+        }
+        
+        function getName(element) {
+            var is;
+            
+            if (element) {
+                is = isName(element);
+                
+                if (!is)
+                    element = element.querySelector('[data-menu-path]');
+            }
+            
+            return element;
+        }
+        
+        function isName(element) {
+            var itIs;
+            
+            if (element)
+                itIs = element.hasAttribute('data-menu-path');
+            
+            return itIs;
+        }
+        
+        function isSubMenu(element) {
+            var data, isSub,
+                DATA    = 'data-menu',
+                VALUE   = 'js-submenu';
+            
+            if (element) {
+                data    = element.getAttribute(DATA),
+                isSub   = data === VALUE;
+            }
+            
+            return isSub;
+        }
+    }
+    
     
 })(window);

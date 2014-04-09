@@ -15,6 +15,14 @@ html, body, .menu-container {
     padding: 0;
     list-style: none;
     position: absolute;
+    
+    z-index: 1;
+    
+    -webkit-user-select : none;
+    -moz-user-select    : none;
+    -ms-user-select     : none;
+    -o-user-select      : none;
+    user-select         : none;
 }
 
 .menu-button {

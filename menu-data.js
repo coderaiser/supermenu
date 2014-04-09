@@ -3,7 +3,7 @@ var MenuProto;
 (function() {
     'use strict';
     
-    var  menu,
+    var menu,
         element = document.querySelector('#js-menu-container');
     
     menu = new MenuProto(element, {
