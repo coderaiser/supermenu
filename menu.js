@@ -156,11 +156,11 @@ var MenuProto, Util;
             ElementEvent,
             MenuFuncs       = {},
             TEMPLATE        = {
-                MAIN:   '<ul id="js-menu" class="menu menu-hidden">'                                    +
+                MAIN:   '<ul data-name="js-menu" class="menu menu-hidden">'                             +
                             '{{ items }}'                                                               +
                         '</ul>',
-                ITEM:   '<li id="js-menu-{{ name }}" class="menu-item{{ className }}"{{ attribute }}>'  +
-                            '<label data-menu-path={{ path }}>{{ name }}</label>'                                      +
+                ITEM:   '<li data-name="js-menu-item" class="menu-item{{ className }}"{{ attribute }}>'  +
+                            '<label data-menu-path={{ path }}>{{ name }}</label>'                       +
                             '{{ subitems }}'                                                            +
                         '</li>'
             };
@@ -242,7 +242,7 @@ var MenuProto, Util;
             });
             
             Element.innerHTML   += menu;
-            elementMenu         = Element.querySelector('#js-menu');
+            elementMenu         = Element.querySelector('[data-name="js-menu"]');
             
             return elementMenu;
         }
@@ -250,43 +250,57 @@ var MenuProto, Util;
         this.show   = showMenuElement;
         this.hide   = hideMenuElement;
         
-        function onClick(event) {
-            var itemData,
-                element = ElementFuncs.getItem(event.target),
+        function checkElement(target) {
+            var is,
+                element = ElementFuncs.getItem(target),
+                isName  = ElementFuncs.isName(element),
+                isItem  = ElementFuncs.isItem(element),
                 isSub   = ElementFuncs.isSubMenu(element);
             
-            if (isSub) {
+            if (!isName || !isItem) {
+                element = document.elementFromPoint(event.x, event.y);
+                isSub   = ElementFuncs.isSubMenu(element);
+                isName  = ElementFuncs.isName(element);
+                isItem  = ElementFuncs.isItem(element);
+            }
+            
+            is = {
+                name    : isName,
+                item    : isItem,
+                sub     : isSub,
+            };
+            
+            return is;
+        }
+        
+        function onClick(event, checkResult) {
+            var itemData,
+                element     = event.target,
+                is          = checkResult || checkElement(element);
+                
+            if (is.sub) {
                 event.preventDefault();
-            } else {
+            } else if (is.name || is.item) {
                 hideMenuElement();
-                
                 itemData = getMenuItemData(element);
-                
                 Util.exec(itemData);
             }
         }
         
         function onContextMenu(event) {
-            var itemData, isName,
-                element = event.target,
+            var element = event.target,
+                is      = checkElement(element),
                 x       = event.x,
                 y       = event.y;
             
-            hideMenuElement();
-            
-            ElementMenu.style.left     = x - 5 +'.px';
-            ElementMenu.style.top      = y - 5 + '.px';
-            
-            
-            isName = ElementFuncs.isName(element);
+            if (is.name || is.item || is.sub) {
+                onClick(event, is);
+            } else {
+                ElementMenu.style.left     = x - 5 +'.px';
+                ElementMenu.style.top      = y - 5 + '.px';
                 
-            if (isName) {
-                itemData = getMenuItemData(element);
-            
-                if (itemData)
-                    Util.exec(itemData);
-            } else
                 showMenuElement();
+            }
             
             event.preventDefault();
         }
@@ -320,6 +334,8 @@ var MenuProto, Util;
         this.getItem    = getItem;
         this.getName    = getName;
         this.isName     = isName;
+        this.isItem     = isItem;
+        this.isMenu     = isMenu;
         this.isSubMenu  = isSubMenu;
          
          function getItem(element) {
@@ -328,7 +344,7 @@ var MenuProto, Util;
             if (element) {
                 isNameElement = isName(element);
                 
-                if (isName)
+                if (isNameElement)
                     element = element.parentElement;
             }
             
@@ -357,17 +373,43 @@ var MenuProto, Util;
             return itIs;
         }
         
-        function isSubMenu(element) {
-            var data, isSub,
-                DATA    = 'data-menu',
-                VALUE   = 'js-submenu';
+        function isItem(element) {
+            var itIs = checkElementsName(element, 'js-menu-item');
+            
+            return itIs;
+        }
+        
+        function isMenu(element) {
+            var itIs = checkElementsName(element, 'js-menu');
+            
+            return itIs;
+        }
+        
+        function checkElementsName(element, nameElement, attribute) {
+            var itIs, name;
+            
+            if (!attribute)
+                attribute = 'data-name';
             
             if (element) {
-                data    = element.getAttribute(DATA),
-                isSub   = data === VALUE;
+                name = element.getAttribute(attribute);
+                
+                if (name === nameElement)
+                    itIs = true;
             }
             
-            return isSub;
+            return itIs;
+        }
+        
+        function isSubMenu(element) {
+            var itIs, item,
+                attribute   = 'data-menu',
+                value       = 'js-submenu';
+            
+            item    = getItem(element);
+            itIs    = checkElementsName(item, value, attribute);
+            
+            return itIs;
         }
     }
     
