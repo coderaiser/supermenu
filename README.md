@@ -16,24 +16,21 @@ Crete `html` page with `js` and `css` connected.
     window.addEventListener('load', function onLoad() {
         'use strict';
         
-        var menu;
-        
         window.removeEventListener('load', onLoad);
-        
-        menu        = new MenuProto({
-            'help': function() {
+        var menu        = new MenuProto({
+            help: function() {
                 alert('*help');
             },
-            'upload': {
-                'github': {
-                    'gist': function() {
+            upload: {
+                github: {
+                    gist: function() {
                         alert('*gist');
                     },
-                    'main': function() {
+                    main: function() {
                         alert('*main');
                     }
                 },
-                'dropbox': function() {
+                dropbox: function() {
                     alert('*dropbox');
                 }
             }
