@@ -7,15 +7,17 @@
         .fixed {
             position: fixed;
         }
+        
+        .dropdown-menu > li > a:focus {
+            outline: 0;
+        }
     </style>
 </head>
     <body>
         <div id="js-menu" class="dropdown fixed open">
             <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
               <li><a href="#">Some action</a></li>
-              <li><a href="#">Some other action</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-submenu">
+               <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Hover me for more options</a>
                 <ul class="dropdown-menu">
                   <li><a tabindex="-1" href="#">Second level</a></li>
@@ -30,6 +32,8 @@
                   <li><a href="#">Second level</a></li>
                 </ul>
               </li>
+              <li><a href="#">Some other action</a></li>
+              <li class="divider"></li>
             </ul>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
