@@ -250,7 +250,7 @@ var MenuProto, Util;
         this.show   = showMenuElement;
         this.hide   = hideMenuElement;
         
-        function checkElement(target) {
+        function checkElement(target, position) {
             var is,
                 element = ElementFuncs.getItem(target),
                 isName  = ElementFuncs.isName(element),
@@ -258,7 +258,7 @@ var MenuProto, Util;
                 isSub   = ElementFuncs.isSubMenu(element);
             
             if (!isName || !isItem) {
-                element = document.elementFromPoint(event.x, event.y);
+                element = document.elementFromPoint(position.x, position.y);
                 isSub   = ElementFuncs.isSubMenu(element);
                 isName  = ElementFuncs.isName(element);
                 isItem  = ElementFuncs.isItem(element);
@@ -276,7 +276,10 @@ var MenuProto, Util;
         function onClick(event, checkResult) {
             var itemData,
                 element     = event.target,
-                is          = checkResult || checkElement(element);
+                is          = checkResult || checkElement(element, {
+                    x: event.clientX,
+                    y: event.clientY
+                });
                 
             if (is.sub) {
                 event.preventDefault();
@@ -292,9 +295,12 @@ var MenuProto, Util;
         
         function onContextMenu(event) {
             var element = event.target,
-                is      = checkElement(element),
-                x       = event.x,
-                y       = event.y;
+                x       = event.clientX,
+                y       = event.clientY,
+                is      = checkElement(element, {
+                    x: x,
+                    y: y
+                });
             
             if (is.name || is.item || is.sub) {
                 onClick(event, is);
