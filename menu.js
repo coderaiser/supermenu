@@ -159,8 +159,8 @@ var MenuProto, Util;
             if (is.name || is.item || is.sub) {
                 onClick(event, is);
             } else {
-                ElementMenu.style.left     = x - 5 +'px';
-                ElementMenu.style.top      = y - 5 + 'px';
+                ElementMenu.style.left     = x + 'px';
+                ElementMenu.style.top      = y - 15 + 'px';
                 
                 showMenuElement();
             }
