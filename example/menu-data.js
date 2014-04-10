@@ -1,10 +1,9 @@
-var MenuProto;
+var menu, MenuProto;
 
 (function() {
     'use strict';
     
-    var menu,
-        element = document.querySelector('#js-menu-container');
+    var element = document.querySelector('#js-menu-container');
     
     menu = new MenuProto(element, {
         'help': function() {

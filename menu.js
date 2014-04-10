@@ -159,16 +159,23 @@ var MenuProto, Util;
             if (is.name || is.item || is.sub) {
                 onClick(event, is);
             } else {
-                ElementMenu.style.left     = x + 'px';
-                ElementMenu.style.top      = y - 15 + 'px';
-                
+                setMenuPosition(x, y);
                 showMenuElement();
             }
             
             event.preventDefault();
         }
         
-        function showMenuElement() {
+        function setMenuPosition(x, y) {
+            if (Util.isNumber(x))
+                ElementMenu.style.left     = x + 'px';
+            
+            if (Util.isNumber(x))
+                ElementMenu.style.top      = y - 15 + 'px';
+        }
+        
+        function showMenuElement(x, y) {
+            setMenuPosition(x, y);
             ElementMenu.classList.remove('menu-hidden');
         }
         

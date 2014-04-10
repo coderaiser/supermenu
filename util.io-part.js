@@ -29,28 +29,36 @@
         };
         
         /**
-         * functions check is pVarible is pType
-         * @param pVarible
+         * functions check is variable is pType
+         * @param variable
          * @param pType
          */    
-        this.isType                 = function(pVarible, pType) {
-            return typeof pVarible === pType;
+        this.isType                 = function(variable, pType) {
+            return typeof variable === pType;
         };
         
         /**
-         * functions check is pVarible is function
-         * @param pVarible
+         * functions check is variable is function
+         * @param variable
          */
-        this.isFunction             = function(pVarible) {
-            return Util.isType(pVarible, 'function');
+        this.isFunction             = function(variable) {
+            return Util.isType(variable, 'function');
         };
         
          /**
-         * functions check is pVarible is object
-         * @param pVarible
+         * functions check is variable is object
+         * @param variable
          */
-        this.isObject               = function(pVarible) {
-            return Util.isType(pVarible, 'object');
+        this.isObject               = function(variable) {
+            return Util.isType(variable, 'object');
+        };
+        
+        /**
+         * functions check is variable is number
+         * @param variable
+         */
+        this.isNumber               = function(variable) {
+            return Util.isType(variable, 'number');
         };
         
         /**
