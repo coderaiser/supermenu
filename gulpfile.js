@@ -4,6 +4,7 @@
     var gulp        = require('gulp'),
         minifyCSS   = require('gulp-minify-css'),
         uglify      = require('gulp-uglify'),
+        concat      = require('gulp-concat'),
         rename      = require('gulp-rename'),
                 
         SUFFIX      = '.min';
@@ -20,11 +21,9 @@
     });
     
     gulp.task('js', function() {
-      gulp.src('menu.js')
+      gulp.src(['menu.js', 'util.io-part.js'])
         .pipe(uglify())
-        .pipe(rename({
-            suffix: SUFFIX
-        }))
+        .pipe(concat('menu.min.js'))
         .pipe(gulp.dest('./'))
         .on('error', onError);
     });
