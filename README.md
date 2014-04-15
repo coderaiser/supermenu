@@ -1,5 +1,6 @@
-Menu
+Menu [BuildStatusURL][BuildStatusURL]
 ====
+[BuildStatusURL]:           https://travis-ci.org/coderaiser/menu  "Build Status"
 
 Simple css-based context menu made for [Cloud Commander](http://cloudcmd.io).
 
