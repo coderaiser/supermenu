@@ -3,9 +3,12 @@ var menu, MenuProto;
 (function() {
     'use strict';
     
-    var element = document.querySelector('#js-menu-container');
+    var element = document.querySelector('#js-menu-container'),
+        options = {
+            icon: true
+        };
     
-    menu = new MenuProto(element, {
+    menu = new MenuProto(element, options, {
         'help': function() {
             console.log('*help');
         },

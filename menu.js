@@ -3,9 +3,10 @@ var MenuProto, Util;
 (function (window) {
     'use strict';
     
-    MenuProto = function(element, menuData) {
+    MenuProto = function(element, options, menuData) {
         var ElementMenu,
             Element,
+            Options,
             ElementFuncs    = new ElementFuncsProto(),
             ElementEvent,
             MenuFuncs       = {},
@@ -22,10 +23,13 @@ var MenuProto, Util;
         if (menuData) {
             Element         =
             ElementEvent    = element;
+            Options         = options;
         } else {
             Element         = document.body;
             ElementEvent    = window;
-            menuData        = element;
+            
+            if (options)
+                menuData        = options;
         }
         
         function init() {
@@ -76,6 +80,9 @@ var MenuProto, Util;
                             className   = ' menu-submenu';
                             attribute   = ' ' + DATA_MENU;
                         }
+                        
+                        if (Options && Options.icon)
+                            className += ' icon icon-' + name;
                         
                         items           += Util.render(TEMPLATE.ITEM, {
                             name        : name,
