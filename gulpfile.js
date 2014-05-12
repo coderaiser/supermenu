@@ -48,7 +48,7 @@
             .on('error', onError);
     });
     
-    gulp.task('default', ['css', 'css-check', 'js-check']);
+    gulp.task('default', ['css', 'js', 'css-check', 'js-check']);
     
     function onError(params) {
         console.log(params.message);
