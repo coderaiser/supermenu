@@ -29,12 +29,30 @@
         };
         
         /**
-         * functions check is variable is pType
+         * functions check is variable is array
          * @param variable
-         * @param pType
-         */    
-        this.isType                 = function(variable, pType) {
-            return typeof variable === pType;
+         */
+        this.isArray                = function(variable) {
+            return Array.isArray(variable);
+        };
+        
+        /**
+         * functions check is variable is arrayBuffer
+         * @param variable
+         */
+        this.isArrayBuffer          = function(variable) {
+            var type    = this.getType(variable),
+                is      = type === 'arraybuffer';
+            
+            return is;
+        };
+        
+        /**
+         * functions check is variable is boolean
+         * @param variable
+         */
+        this.isBoolean               = function(variable) {
+            return Util.isType(variable, 'boolean');
         };
         
         /**
@@ -45,20 +63,79 @@
             return Util.isType(variable, 'function');
         };
         
-         /**
-         * functions check is variable is object
-         * @param variable
-         */
-        this.isObject               = function(variable) {
-            return Util.isType(variable, 'object');
-        };
-        
         /**
          * functions check is variable is number
          * @param variable
          */
         this.isNumber               = function(variable) {
             return Util.isType(variable, 'number');
+        };
+        
+        /**
+         * functions check is variable is object
+         * @param variable
+         */
+        this.isObject               = function(variable) {
+            var type    = Util.getType(variable),
+                is      = type === 'object';
+            
+            return is;
+        };
+        
+        /**
+         * functions check is variable is string
+         * @param variable
+         */
+         this.isString               = function(variable) {
+            return Util.isType(variable, 'string');
+        };
+        
+        /**
+         * functions check is variable is string
+         * @param variable
+         */
+         this.isUndefined           = function(variable) {
+            return Util.isType(variable, 'undefined');
+        };
+        
+        /**
+         * functions check is variable is File
+         * @param variable
+         */
+        this.isFile                 = function(variable) {
+            var FILE = '[object File]',
+                name, is;
+            
+            name    = Util.execIfExist(variable, 'toString');
+            
+            is      = name === FILE;
+            
+            return is;
+        };
+        
+        /**
+         * functions check is variable is pType
+         * @param variable
+         * @param pType
+         */    
+        this.isType                 = function(variable, pType) {
+            return typeof variable === pType;
+        };
+        
+        /**
+         * get type of variable
+         * 
+         * @param variable
+         */
+        this.getType                = function(variable) {
+            var regExp      = new RegExp('\\s([a-zA-Z]+)'),
+                obj         = {},
+                toStr       = obj.toString,
+                str         = toStr.call(variable),
+                typeBig     = str.match(regExp)[1],
+                type        = typeBig.toLowerCase();
+            
+            return type;
         };
         
         /**
@@ -121,22 +198,23 @@
         
         /**
          * function replase pFrom to pTo in pStr
-         * @pStr
-         * @pFrom
-         * @pTo
-         * @pNotEscape
+         * @param str
+         * @param from
+         * @param to
+         * @param notEscape
          */
-        this.replaceStr             = function(pStr, pFrom, pTo, pNotEscape) {
-            var lRet = pStr;
+        this.replaceStr             = function(str, from, to, notEscape) {
+            var isStr   = Util.isStr(str),
+                regExp  = new RegExp(from, 'g');
             
-            if (pStr && pFrom) {
-                if (!pNotEscape)
-                    pFrom = Util.escapeRegExp(pFrom);
+            if (isStr && from) {
+                if (!notEscape)
+                    from = Util.escapeRegExp(from);
                 
-                lRet = pStr.replace(new RegExp(pFrom, 'g'), pTo);
+                str = str.replace(regExp, to);
             }
            
-           return lRet;
+           return str;
         };
         
         this.escapeRegExp = function(pStr) {
@@ -144,7 +222,7 @@
                 isStr   = Util.isString(pStr);
             
             if (isStr)
-                lRet = pStr.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+                lRet = pStr.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
             
             return lRet;
         };
