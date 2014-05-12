@@ -21,7 +21,7 @@ Tired to use js based libraries which use jquery and `.hover` classes insteed of
 - easy to extend.
 
 #How use?
-Crete `html` page with `js` and `css` connected.
+Create `html` page with `js` and `css` connected.
 
 ```html
 <link rel="stylesheet" href="http://coderaiser.github.io/menu/menu.min.css">
