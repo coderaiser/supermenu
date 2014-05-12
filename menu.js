@@ -8,6 +8,7 @@ var MenuProto, Util;
             Element,
             Options,
             ElementFuncs    = new ElementFuncsProto(),
+            ElementHeight,
             ElementEvent,
             MenuFuncs       = {},
             TEMPLATE        = {
@@ -163,27 +164,33 @@ var MenuProto, Util;
                     y: y
                 });
             
-            if (is.name || is.item || is.sub) {
+            if (is.name || is.item || is.sub)
                 onClick(event, is);
-            } else {
-                setMenuPosition(x, y);
-                showMenuElement();
-            }
+            else
+                showMenuElement(x, y);
             
             event.preventDefault();
         }
         
         function setMenuPosition(x, y) {
-            if (Util.isNumber(x))
-                ElementMenu.style.left     = x + 'px';
+            var isNumberX   = Util.isNumber(x),
+                isNumberY   = Util.isNumber(y),
+                heightMenu  = getMenuHeight(),
+                heightInner = window.innerHeight;
             
-            if (Util.isNumber(x))
-                ElementMenu.style.top      = y - 15 + 'px';
+            if (heightInner < heightMenu + y)
+                y -= heightMenu;
+            
+            if (isNumberX)
+                ElementMenu.style.left  = x + 'px';
+            
+            if (isNumberY)
+                ElementMenu.style.top   = y - 15 + 'px';
         }
         
         function showMenuElement(x, y) {
-            setMenuPosition(x, y);
             ElementMenu.classList.remove('menu-hidden');
+            setMenuPosition(x, y);
         }
         
         function hideMenuElement() {
@@ -202,6 +209,18 @@ var MenuProto, Util;
             data        = MenuFuncs[path];
             
             return data;
+        }
+        
+        function getMenuHeight() {
+            var styleComputed, height;
+            
+            if (!ElementHeight) {
+                styleComputed   = getComputedStyle(ElementMenu);
+                height          = styleComputed.height;
+                ElementHeight   = parseInt(height, 10);
+            }
+                
+            return ElementHeight;
         }
         
         init();
