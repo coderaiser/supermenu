@@ -204,7 +204,7 @@
          * @param notEscape
          */
         this.replaceStr             = function(str, from, to, notEscape) {
-            var isStr   = Util.isStr(str),
+            var isStr   = Util.isString(str),
                 regExp  = new RegExp(from, 'g');
             
             if (isStr && from) {
