@@ -24,8 +24,8 @@ Tired to use js based libraries which use jquery and `.hover` classes insteed of
 Create `html` page with `js` and `css` connected.
 
 ```html
-<link rel="stylesheet" href="http://coderaiser.github.io/menu/menu.min.css">
-<script src="http://coderaiser.github.io/menu/menu.min.js"></script>
+<link rel="stylesheet" href="http://coderaiser.github.io/menu-io/menu.min.css">
+<script src="http://coderaiser.github.io/menu-io/menu.min.js"></script>
 ```
 
 Add little JavaScript:
@@ -41,7 +41,7 @@ Look for `examples` directory or copy example from bottom:
 
 ```html
 <link rel="stylesheet" href="http://coderaiser.github.io/menu-io/menu.min.css">
-<script src="http://coderaiser.github.io/menu/menu-io.min.js"></script>
+<script src="http://coderaiser.github.io/menu-io/menu-io.min.js"></script>
 <script>
     window.addEventListener('load', function onLoad() {
         'use strict';
