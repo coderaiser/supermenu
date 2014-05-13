@@ -30,7 +30,8 @@ var MenuIO, Util;
             ElementEvent    = element;
             Options         = options;
         } else if (options) {
-            Element         = element;
+            Element         =
+            ElementEvent    = element;
             menuData        = options;
         } else {
             Element         = document.body;
