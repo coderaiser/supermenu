@@ -1,7 +1,3 @@
----
-layout: default
----
-
 Menu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
 ====
 [BuildStatusURL]:           https://travis-ci.org/coderaiser/menu-io  "Build Status"
