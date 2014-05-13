@@ -10,7 +10,7 @@ var MenuIO, Util;
         
         var ElementMenu,
             Element,
-            Options,
+            Options         = {},
             ElementFuncs    = new ElementFuncsProto(),
             ElementHeight,
             ElementEvent,
@@ -86,7 +86,7 @@ var MenuIO, Util;
                             attribute   = ' ' + DATA_MENU;
                         }
                         
-                        if (Options && Options.icon)
+                        if (Options.icon)
                             className += ' icon icon-' + name;
                         
                         items           += Util.render(TEMPLATE.ITEM, {
@@ -200,6 +200,7 @@ var MenuIO, Util;
         
         function hideMenuElement() {
             ElementMenu.classList.add('menu-hidden');
+            Util.exec(Options.onClose);
         }
         
         function getMenuItemData(element) {
