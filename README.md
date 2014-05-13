@@ -1,4 +1,4 @@
-Menu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
+Menu-IO [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
 ====
 [BuildStatusURL]:           https://travis-ci.org/coderaiser/menu  "Build Status"
 [BuildStatusIMGURL]:        https://api.travis-ci.org/coderaiser/menu.png?branch=gh-pages
