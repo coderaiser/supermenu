@@ -217,6 +217,38 @@
            return str;
         };
         
+        /**
+         * function remove substring from string
+         * @param str
+         * @param substr
+         */
+        this.rmStr                  = function(str, substr, isOnce) {
+            var replace,
+                strArray    = [],
+                isString    = Util.isString(str),
+                isArray     = Util.isArray(substr),
+                replaceStr  = function(str, strItem) {
+                    var ret = str.replace(strItem, '');
+                    
+                    return ret;
+                };
+            
+            replace         = isOnce ? replaceStr : Util.replaceStr;
+            
+            if (isString && substr)  {
+                if (isArray)
+                    strArray = substr;
+                else
+                    strArray.push(substr);
+                
+                strArray.forEach(function(strItem) {
+                    str = replace(str, strItem, '');
+                });
+            }
+            
+            return str;
+        };
+        
         this.escapeRegExp = function(pStr) {
             var lRet    = pStr,
                 isStr   = Util.isString(pStr);
@@ -225,6 +257,21 @@
                 lRet = pStr.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
             
             return lRet;
+        };
+        
+        /**
+         * function convert name: rm: '(, ), -, " "'
+         * 
+         * @name
+         * convert 
+         */
+        this.convertName            = function(name) {
+            var conv = name && name.toLowerCase();
+            
+            conv    = Util.rmStr(conv, ['(', ')']);
+            conv    = Util.replaceStr(conv, ' ', '-');
+            
+            return conv;
         };
     }
 })(this);

@@ -68,7 +68,8 @@ var MenuIO, Util;
                         path        = '';
                     
                     Object.keys(menuData).forEach(function(name) {
-                        var subitems    = '',
+                        var nameIcon,
+                            subitems    = '',
                             className   = '',
                             attribute   = '',
                             pathName    = path + name,
@@ -87,8 +88,10 @@ var MenuIO, Util;
                             attribute   = ' ' + DATA_MENU;
                         }
                         
-                        if (Options.icon)
-                            className += ' icon icon-' + name;
+                        if (Options.icon) {
+                            nameIcon    = Util.convertName(name);
+                            className  += ' icon icon-' + nameIcon;
+                        }
                         
                         items           += Util.render(TEMPLATE.ITEM, {
                             name        : name,
