@@ -1,7 +1,7 @@
 Menu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
 ====
-[BuildStatusURL]:           https://travis-ci.org/coderaiser/menu  "Build Status"
-[BuildStatusIMGURL]:        https://api.travis-ci.org/coderaiser/menu.png?branch=gh-pages
+[BuildStatusURL]:           https://travis-ci.org/coderaiser/menu-io  "Build Status"
+[BuildStatusIMGURL]:        https://api.travis-ci.org/coderaiser/menu-io.png?branch=gh-pages
 
 Simple css-based context menu made for [Cloud Commander](http://cloudcmd.io).
 
