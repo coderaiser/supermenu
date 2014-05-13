@@ -103,11 +103,12 @@ var MenuIO, Util;
             
             items = buildItems(menuData);
             
-            menu = Util.render(TEMPLATE.MAIN, {
-                items: items
-            });
+            menu  = document.createElement('ul');
+            menu.setAttribute('data-name', 'js-menu');
+            menu.className  = 'menu menu-hidden';
+            menu.innerHTML  = items;
             
-            Element.innerHTML   += menu;
+            Element.appendChild(menu);
             elementMenu         = Element.querySelector('[data-name="js-menu"]');
             
             return elementMenu;
