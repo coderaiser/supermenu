@@ -29,6 +29,7 @@ Create `html` page with `js` and `css` connected.
 ```
 
 Add little JavaScript:
+
 ```js
 var menu        = MenuIO({
     'item name': function onItemNameClick() {
@@ -39,8 +40,8 @@ var menu        = MenuIO({
 Look for `examples` directory or copy example from bottom:
 
 ```html
-<link rel="stylesheet" href="http://coderaiser.github.io/menu/menu.min.css">
-<script src="http://coderaiser.github.io/menu/menu.min.js"></script>
+<link rel="stylesheet" href="http://coderaiser.github.io/menu-io/menu.min.css">
+<script src="http://coderaiser.github.io/menu/menu-io.min.js"></script>
 <script>
     window.addEventListener('load', function onLoad() {
         'use strict';
