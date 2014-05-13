@@ -35,6 +35,7 @@ var MenuIO, Util;
         } else {
             Element         = document.body;
             ElementEvent    = window;
+            menuData        = element;
         }
         
         function init() {
