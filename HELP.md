@@ -1,13 +1,3 @@
----
-layout          : default
-title           : Menu
-tagLine         : Simple css-based multillevel context menu
-repoName        : coderaiser/menu-io/edit/gh-pages/HELP.md
-repoSource      : coderaiser/menu-io
----
-
-Menu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
-====
 Menu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
 ====
 [BuildStatusURL]:           https://travis-ci.org/coderaiser/menu-io  "Build Status"
