@@ -10,7 +10,7 @@
         recess      = require('gulp-recess'),
         
         NAME_CSS    = 'menu.css',
-        NAME_JS     = ['menu.js', 'util.io-part.js'],
+        NAME_JS     = ['menu-io.js', 'util.io-part.js'],
         SUFFIX      = '.min';
         
     
@@ -33,7 +33,7 @@
     gulp.task('js', function() {
       gulp.src(NAME_JS)
         .pipe(uglify())
-        .pipe(concat('menu.min.js'))
+        .pipe(concat('menu-io.min.js'))
         .pipe(gulp.dest('./'))
         .on('error', onError);
     });
