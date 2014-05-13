@@ -195,13 +195,14 @@ var MenuIO, Util;
         }
         
         function showMenuElement(x, y) {
+            Util.exec(Options.beforShow);
             ElementMenu.classList.remove('menu-hidden');
             setMenuPosition(x, y);
         }
         
         function hideMenuElement() {
+            Util.exec(Options.beforClose);
             ElementMenu.classList.add('menu-hidden');
-            Util.exec(Options.onClose);
         }
         
         function getMenuItemData(element) {
