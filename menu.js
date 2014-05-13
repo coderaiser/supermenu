@@ -53,8 +53,7 @@ var MenuProto, Util;
                 menu        = '',
                 items       = '',
                 buildItems  = function(menuData, path) {
-                    var name, isObj, data, subitems, className, attribute, pathName,
-                        DATA_MENU   = 'data-menu="js-submenu"',
+                    var DATA_MENU   = 'data-menu="js-submenu"',
                         items       = '';
                     
                     if (path)
@@ -62,14 +61,14 @@ var MenuProto, Util;
                     else
                         path        = '';
                     
-                    for (name in menuData) {
-                        subitems    = '';
-                        className   = '';
-                        attribute   = '';
-                        pathName    = path + name;
-                        
-                        data        = menuData[name];
-                        isObj       = Util.isObject(data);
+                    Object.keys(menuData).forEach(function(name) {
+                        var subitems    = '',
+                            className   = '',
+                            attribute   = '',
+                            pathName    = path + name,
+                            
+                            data        = menuData[name],
+                            isObj       = Util.isObject(data);
                         
                         if (!isObj) {
                             MenuFuncs[pathName] = data;
@@ -92,7 +91,7 @@ var MenuProto, Util;
                             attribute   : attribute,
                             path        : pathName
                         });
-                    }
+                    });
                     
                     return items;
                 };
