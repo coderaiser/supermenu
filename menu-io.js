@@ -20,7 +20,7 @@ var MenuIO, Util;
                             '{{ items }}'                                                               +
                         '</ul>',
                 ITEM:   '<li data-name="js-menu-item" class="menu-item{{ className }}"{{ attribute }}>' +
-                            '<label data-menu-path={{ path }}>{{ name }}</label>'                       +
+                            '<label data-menu-path="{{ path }}">{{ name }}</label>'                     +
                             '{{ subitems }}'                                                            +
                         '</li>'
             };
