@@ -1,4 +1,4 @@
-var menu, MenuProto;
+var menu, Menu;
 
 (function() {
     'use strict';
@@ -8,7 +8,7 @@ var menu, MenuProto;
             icon: true
         };
     
-    menu = new MenuProto(element, options, {
+    menu = Menu(element, options, {
         'help': function() {
             console.log('*help');
         },

@@ -1,9 +1,13 @@
-var MenuProto, Util;
+var Menu, Util;
 
 (function (window) {
     'use strict';
     
-    MenuProto = function(element, options, menuData) {
+    Menu = function(element, options, menuData) {
+        if (!(this instanceof Menu)) {
+            return new Menu(element, options, menuData);
+        }
+        
         var ElementMenu,
             Element,
             Options,

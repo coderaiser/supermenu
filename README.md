@@ -30,7 +30,7 @@ Create `html` page with `js` and `css` connected.
 
 Add little JavaScript:
 ```js
-var menu        = new MenuProto({
+var menu        = Menu({
     'item name': function onItemNameClick() {
     }
 }
@@ -46,7 +46,7 @@ Look for `examples` directory or copy example from bottom:
         'use strict';
         
         window.removeEventListener('load', onLoad);
-        var menu        = new MenuProto({
+        var menu        = Menu({
             help: function() {
                 alert('*help');
             },
