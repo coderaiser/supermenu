@@ -1,4 +1,4 @@
-var menu, Menu;
+var menu, MenuIO;
 
 (function() {
     'use strict';
@@ -8,7 +8,7 @@ var menu, Menu;
             icon: true
         };
     
-    menu = Menu(element, options, {
+    menu = MenuIO(element, options, {
         'help': function() {
             console.log('*help');
         },

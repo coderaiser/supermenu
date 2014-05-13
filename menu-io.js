@@ -1,11 +1,11 @@
-var Menu, Util;
+var MenuIO, Util;
 
 (function (window) {
     'use strict';
     
-    Menu = function(element, options, menuData) {
-        if (!(this instanceof Menu)) {
-            return new Menu(element, options, menuData);
+    MenuIO = function(element, options, menuData) {
+        if (!(this instanceof MenuIO)) {
+            return new MenuIO(element, options, menuData);
         }
         
         var ElementMenu,
@@ -29,12 +29,12 @@ var Menu, Util;
             Element         =
             ElementEvent    = element;
             Options         = options;
+        } else if (options) {
+            Element         = element;
+            menuData        = options;
         } else {
             Element         = document.body;
             ElementEvent    = window;
-            
-            if (options)
-                menuData        = options;
         }
         
         function init() {
