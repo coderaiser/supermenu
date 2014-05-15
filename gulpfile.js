@@ -15,7 +15,7 @@
         
     
     gulp.task('css', function() {
-        gulp.src('menu.css')
+        gulp.src('menu-io.css')
             .pipe(minifyCSS())
             .pipe(rename({
                 suffix: SUFFIX
