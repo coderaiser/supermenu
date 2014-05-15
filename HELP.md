@@ -36,6 +36,23 @@ var menu        = MenuIO({
     }
 }
 ```
+You could use element and (or) options parameters if you need to.
+
+```js
+var element     = document.body,
+    
+    options     = {
+        icon        : true, /* add class icon-item-name */
+        beforeClose : alert,
+        beforeShow  : alert,
+        beforeClick : alert,
+        name        : 'name of menu' /* if you want use a couple menu on one element */
+    },
+    
+    menu        = Menu(element, options, {
+        'item name': function onItemNameClick() {
+    });
+```
 
 Look for `examples` directory or copy example from bottom:
 
