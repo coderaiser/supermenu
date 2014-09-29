@@ -22,7 +22,7 @@
             var ret,
                 args    = Util.slice(arguments, 1);
            
-            if (Util.isFunction(callback))
+            if (Util.type.function(callback))
                 ret     = callback.apply(null, args);
             
             return ret;
@@ -204,7 +204,7 @@
          */
         this.replaceStr             = function(str, from, to, notEscape) {
             var regExp,
-                isStr   = Util.isString(str);
+                isStr   = Util.type.string(str);
             
             if (isStr && from) {
                 if (!notEscape)
@@ -225,8 +225,8 @@
         this.rmStr                  = function(str, substr, isOnce) {
             var replace,
                 strArray    = [],
-                isString    = Util.isString(str),
-                isArray     = Util.isArray(substr),
+                isString    = Util.type.string(str),
+                isArray     = Util.type.array(substr),
                 replaceStr  = function(str, strItem) {
                     var ret = str.replace(strItem, '');
                     
@@ -251,7 +251,7 @@
         
         this.escapeRegExp = function(pStr) {
             var lRet    = pStr,
-                isStr   = Util.isString(pStr);
+                isStr   = Util.type.string(pStr);
             
             if (isStr)
                 lRet = pStr.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
