@@ -28,115 +28,114 @@
             return ret;
         };
         
-        /**
-         * functions check is variable is array
-         * @param variable
-         */
-        this.isArray                = function(variable) {
-            return Array.isArray(variable);
-        };
+        this.type                   = new TypeProto();
         
-        /**
-         * functions check is variable is arrayBuffer
-         * @param variable
-         */
-        this.isArrayBuffer          = function(variable) {
-            var type    = this.getType(variable),
-                is      = type === 'arraybuffer';
+        function TypeProto() {
+            /**
+             * get type of variable
+             * 
+             * @param variable
+             */
+            function type(variable) {
+                var regExp      = new RegExp('\\s([a-zA-Z]+)'),
+                    str         = {}.toString.call(variable),
+                    typeBig     = str.match(regExp)[1],
+                    result      = typeBig.toLowerCase();
+                
+                return result;
+            }
             
-            return is;
-        };
-        
-        /**
-         * functions check is variable is boolean
-         * @param variable
-         */
-        this.isBoolean               = function(variable) {
-            return Util.isType(variable, 'boolean');
-        };
-        
-        /**
-         * functions check is variable is function
-         * @param variable
-         */
-        this.isFunction             = function(variable) {
-            return Util.isType(variable, 'function');
-        };
-        
-        /**
-         * functions check is variable is number
-         * @param variable
-         */
-        this.isNumber               = function(variable) {
-            return Util.isType(variable, 'number');
-        };
-        
-        /**
-         * functions check is variable is object
-         * @param variable
-         */
-        this.isObject               = function(variable) {
-            var type    = Util.getType(variable),
-                is      = type === 'object';
+            /**
+             * functions check is variable is array
+             * @param variable
+             */
+            type.array          = function(variable) {
+                var result;
+                
+                if (Array.isArray)
+                    result = Array.isArray(variable) ;
+                else
+                    result = type(variable) === 'array';
+                
+                return result;
+            };
             
-            return is;
-        };
-        
-        /**
-         * functions check is variable is string
-         * @param variable
-         */
-         this.isString               = function(variable) {
-            return Util.isType(variable, 'string');
-        };
-        
-        /**
-         * functions check is variable is string
-         * @param variable
-         */
-         this.isUndefined           = function(variable) {
-            return Util.isType(variable, 'undefined');
-        };
-        
-        /**
-         * functions check is variable is File
-         * @param variable
-         */
-        this.isFile                 = function(variable) {
-            var FILE = '[object File]',
-                name, is;
+            /**
+             * functions check is variable is arrayBuffer
+             * @param variable
+             */
+            type.arrayBuffer    = function(variable) {
+                return type(variable) === 'arraybuffer';
+            };
             
-            name    = Util.execIfExist(variable, 'toString');
+            /**
+             * functions check is variable is boolean
+             * @param variable
+             */
+            type.boolean               = function(variable) {
+                return typeof variable === 'boolean';
+            };
             
-            is      = name === FILE;
+            /**
+             * functions check is variable is function
+             * @param variable
+             */
+            type.function               = function(variable) {
+                return typeof variable === 'function';
+            };
             
-            return is;
-        };
-        
-        /**
-         * functions check is variable is pType
-         * @param variable
-         * @param pType
-         */    
-        this.isType                 = function(variable, pType) {
-            return typeof variable === pType;
-        };
-        
-        /**
-         * get type of variable
-         * 
-         * @param variable
-         */
-        this.getType                = function(variable) {
-            var regExp      = new RegExp('\\s([a-zA-Z]+)'),
-                obj         = {},
-                toStr       = obj.toString,
-                str         = toStr.call(variable),
-                typeBig     = str.match(regExp)[1],
-                type        = typeBig.toLowerCase();
+            /**
+             * functions check is variable is number
+             * @param variable
+             */
+            type.number               = function(variable) {
+                return typeof variable === 'number';
+            };
+            
+            /**
+             * functions check is variable is object
+             * @param variable
+             */
+            type.object               = function(variable) {
+                var type    = Util.type(variable),
+                    is      = type === 'object';
+                
+                return is;
+            };
+            
+            /**
+             * functions check is variable is string
+             * @param variable
+             */
+            type.string               = function(variable) {
+                return typeof variable === 'string';
+            };
+            
+            /**
+             * functions check is variable is string
+             * @param variable
+             */
+            type.undefined            = function(variable) {
+                return typeof variable === 'undefined';
+            };
+            
+            /**
+             * functions check is variable is File
+             * @param variable
+             */
+            type.file                 = function(variable) {
+                var FILE = '[object File]',
+                    name, is;
+                
+                name    = Util.exec.ifExist(variable, 'toString');
+                
+                is      = name === FILE;
+                
+                return is;
+            };
             
             return type;
-        };
+        }
         
         /**
          * function makes new array based on first
