@@ -85,3 +85,6 @@ Look for `examples` directory or copy example from bottom:
     });
 </script>
 ```
+
+#License
+MIT
