@@ -339,6 +339,4 @@ var MenuIO, Util;
             return itIs;
         }
     }
-    
-    
 })(window);
