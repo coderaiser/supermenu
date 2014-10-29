@@ -258,20 +258,5 @@
             
             return lRet;
         };
-        
-        /**
-         * function convert name: rm: '(, ), -, " "'
-         * 
-         * @name
-         * convert 
-         */
-        this.convertName            = function(name) {
-            var conv = name && name.toLowerCase();
-            
-            conv    = Util.rmStr(conv, ['(', ')']);
-            conv    = Util.replaceStr(conv, ' ', '-');
-            
-            return conv;
-        };
     }
 })(this);

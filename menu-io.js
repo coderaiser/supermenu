@@ -90,7 +90,11 @@ var MenuIO, Util;
                         }
                         
                         if (Options.icon) {
-                            nameIcon    = Util.convertName(name);
+                            nameIcon    = Util.rmStr(name, ['(', ')']);
+                            nameIcon    = nameIcon
+                                            .toLowerCase()
+                                            .replace(' ', '-');
+                            
                             className  += ' icon icon-' + nameIcon;
                         }
                         
