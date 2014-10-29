@@ -49,7 +49,7 @@ var element     = document.body,
         name        : 'name of menu' /* if you want use a couple menu on one element */
     },
     
-    menu        = Menu(element, options, {
+    menu        = MenuIO(element, options, {
         'item name': function onItemNameClick() {
     });
 ```
