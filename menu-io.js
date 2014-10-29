@@ -91,9 +91,8 @@ var MenuIO, Util;
                         
                         if (Options.icon) {
                             nameIcon    = Util.rmStr(name, ['(', ')']);
-                            nameIcon    = nameIcon
-                                            .toLowerCase()
-                                            .replace(' ', '-');
+                            nameIcon    = Util.replaceStr(name, ' ', '-')
+                            nameIcon    = nameIcon.toLowerCase();
                             
                             className  += ' icon icon-' + nameIcon;
                         }
