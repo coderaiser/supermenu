@@ -169,12 +169,14 @@
         
         /**
          * function render template with view and own symbols
-         * @templ
-         * @view
-         * @symbols
+         *
+         * @param templ
+         * @param view
+         * @param symbols
+         * @param notEscape
          */
         this.ownRender                  = function(templ, view, symbols, notEscape) {
-            var str, param, expr,
+            var str, expr,
                 ret         = templ,
                 firstChar,
                 secondChar;
@@ -182,12 +184,14 @@
             firstChar   = symbols[0];
             secondChar  = symbols[1]  || firstChar;
             
-            for (param in view) {
-                str     = view[param];
-                str     = Util.exec(str) || str;
-                expr    = firstChar + param + secondChar;
-                ret     = Util.replaceStr(ret, expr, str, notEscape);
-            }
+            Object
+                .keys(view)
+                .forEach(function(param) {
+                    str     = view[param];
+                    str     = Util.exec(str) || str;
+                    expr    = firstChar + param + secondChar;
+                    ret     = Util.replaceStr(ret, expr, str, notEscape);
+                });
             
             expr        = firstChar + '.*' + secondChar;
             ret         = Util.replaceStr(ret, expr, '', notEscape);
