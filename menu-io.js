@@ -1,4 +1,4 @@
-var MenuIO, Util;
+var MenuIO;
 
 (function (window) {
     'use strict';
@@ -40,7 +40,8 @@ var MenuIO, Util;
         }
         
         function init() {
-            var name, isObj = Util.type.object(menuData);
+            var name, 
+                isObj = typeof menuData === 'object';
             
             if (!isObj) {
                 name            = menuData;
@@ -76,12 +77,12 @@ var MenuIO, Util;
                             pathName    = path + name,
                             
                             data        = menuData[name],
-                            isObj       = Util.type.object(data);
+                            isObj       = typeof data === 'object';
                         
                         if (!isObj) {
                             MenuFuncs[pathName] = data;
                         } else {
-                            subitems    = Util.render(TEMPLATE.MAIN, {
+                            subitems    = rendy(TEMPLATE.MAIN, {
                                 items: buildItems(data, pathName)
                             });
                             
@@ -90,9 +91,10 @@ var MenuIO, Util;
                         }
                         
                         if (Options.icon) {
-                            nameIcon    = Util.rmStr(name, ['(', ')']);
-                            nameIcon    = Util.replaceStr(nameIcon, ' ', '-');
-                            nameIcon    = nameIcon.toLowerCase();
+                            nameIcon    = name
+                                .replace(/\(|\)/g, '')
+                                .replace(/\s/g, '-')
+                                .toLowerCase();
                             
                             className  += ' icon icon-' + nameIcon;
                         }
@@ -104,7 +106,7 @@ var MenuIO, Util;
                                 attribute = ' ' + Data_KEY + key;
                         }
                         
-                        items           += Util.render(TEMPLATE.ITEM, {
+                        items           += rendy(TEMPLATE.ITEM, {
                             name        : name,
                             subitems    : subitems,
                             className   : className,
@@ -166,7 +168,7 @@ var MenuIO, Util;
                     y: event.clientY
                 });
             
-            notClick        = Util.exec(beforeClick, name);
+            notClick        = exec(beforeClick, name);
             
             if (is.sub) {
                 event.preventDefault();
@@ -175,8 +177,8 @@ var MenuIO, Util;
                 
                 if (!notClick && (is.name || is.item)) {
                     itemData = getMenuItemData(element);
-                    Util.exec(itemData);
-                    Util.exec(afterClick);
+                    exec(itemData);
+                    exec(afterClick);
                 }
             }
         }
@@ -201,8 +203,8 @@ var MenuIO, Util;
         }
         
         function setMenuPosition(x, y) {
-            var isNumberX   = Util.type.number(x),
-                isNumberY   = Util.type.number(y),
+            var isNumberX   = typeof x === 'number',
+                isNumberY   = typeof y === 'number',
                 heightMenu  = getMenuHeight(),
                 heightInner = window.innerHeight;
             
@@ -225,7 +227,7 @@ var MenuIO, Util;
                     name    : name
                 },
                 
-                notShow     = Util.exec(beforeShow, params);
+                notShow     = exec(beforeShow, params);
             
             if (!notShow) {
                 ElementMenu.classList.remove('menu-hidden');
@@ -234,7 +236,7 @@ var MenuIO, Util;
         }
         
         function hideMenuElement() {
-            var notHide = Util.exec(Options.beforeClose);
+            var notHide = exec(Options.beforeClose);
             
             if (!notHide)
                 ElementMenu.classList.add('menu-hidden');
@@ -350,5 +352,34 @@ var MenuIO, Util;
             
             return itIs;
         }
+    }
+    
+    function exec(callback) {
+        var ret,
+            args    = [].slice.call(arguments, 1);
+       
+        if (typeof callback === 'function')
+            ret     = callback.apply(null, args);
+        
+        return ret;
+    }
+    
+    function rendy(templ, data) {
+        var str, regExp, expr,
+            result  = templ;
+        
+        Object
+            .keys(data)
+            .forEach(function(param) {
+                str     = data[param];
+                expr    = '{{\\s*' + param + '\\s*}}';
+                regExp  = RegExp(expr, 'g');
+                result  = result.replace(regExp, str);
+            });
+        
+        if (~result.indexOf('{{'))
+            result = result.replace(/{{\s*.*\s*}}/, '');
+        
+        return result;
     }
 })(window);

@@ -10,7 +10,7 @@
         recess      = require('gulp-recess'),
         
         NAME_CSS    = 'menu.css',
-        NAME_JS     = ['menu-io.js', 'util.io-part.js'],
+        NAME_JS     = ['menu-io.js'],
         SUFFIX      = '.min';
         
     
