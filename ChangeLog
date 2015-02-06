@@ -1,3 +1,11 @@
+2015.02.06, v0.7.7
+
+feature:
+- (menu) speed up
+- (bower) ignore: add gulpfile
+- (bower) moduleType: add node
+
+
 2015.01.05, v0.7.5
 
 fix:
