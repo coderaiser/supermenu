@@ -210,6 +210,8 @@ var MenuIO;
             
             if (heightInner < heightMenu + y)
                 y -= heightMenu;
+
+            if (y < 0) y = 0;
             
             if (isNumberX)
                 ElementMenu.style.left  = x + 'px';
@@ -260,9 +262,9 @@ var MenuIO;
             var styleComputed, height;
             
             if (!ElementHeight) {
-                styleComputed   = getComputedStyle(ElementMenu);
-                height          = styleComputed.height;
-                ElementHeight   = parseInt(height, 10);
+                height              = ElementMenu.offsetHeight;
+                if (!height) height = getComputedStyle(ElementMenu).height;
+                ElementHeight       = parseInt(height, 10);
             }
                 
             return ElementHeight;
