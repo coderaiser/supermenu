@@ -11,7 +11,8 @@
     "url": "git://github.com/coderaiser/menu-io.git"
   },
   "scripts": {
-    "test": "gulp default"
+    "test": "gulp default",
+    "wisdom": "npm test"
   },
   "devDependencies": {
     "gulp": "~3.8.8",
@@ -24,6 +25,6 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=0.4.x"
+    "node": ">=0.12"
   }
 }
