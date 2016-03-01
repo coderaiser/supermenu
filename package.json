@@ -11,7 +11,7 @@
     "url": "git://github.com/coderaiser/menu-io.git"
   },
   "scripts": {
-    "test": "lint:css && gulp default",
+    "test": "npm run lint:css && gulp default",
     "lint:css": "stylelint menu-io.css",
     "wisdom": "npm test"
   },
