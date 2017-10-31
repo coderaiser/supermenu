@@ -8,11 +8,11 @@ Simple css-based context menu made for [Cloud Commander](http://cloudcmd.io).
 Little bit better then other people do :).
 So to see at work look [here](http://jsfiddle.net/coderaiser/mAUUz/).
 
-#How come?
+# How come?
 
 Tired to use js based libraries which use jquery and `.hover` classes insteed of `:hover` pseudo-selectors.
 
-#Why should I care?
+# Why should I care?
 
 - `1.6kb` min & gzip for js.
 - `1kb` min & gzip  for css.
@@ -26,7 +26,7 @@ With help of [bower](http://bower.io "Bower").
 bower install menu
 ```
 
-#How use?
+# How use?
 Create `html` page with `js` and `css` connected.
 
 ```html
@@ -92,5 +92,5 @@ Look for `examples` directory or copy example from bottom:
 </script>
 ```
 
-#License
+# License
 MIT
