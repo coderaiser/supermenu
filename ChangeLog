@@ -1,3 +1,17 @@
+2018.04.27, v2.0.0
+
+fix:
+- (package) test: lint:css -> npm run lint:css
+- (menu) menu cut on left
+
+feature:
+- (package) menu-io -> supermenu
+- (supermenu) es2015-ify
+- (stylelint) .stylelintrc -> .stylelintrc.yml
+- (package) ~ -> ^
+- (package) add stylelint
+
+
 2016.03.01, v1.0.2
 
 fix:
