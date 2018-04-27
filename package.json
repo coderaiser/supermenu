@@ -4,10 +4,9 @@
   "main": "legacy/supermenu.js",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Simple css-based multillevel context menu",
-  "homepage": "http://coderaiser.github.io/menu",
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/menu-io.git"
+    "url": "git://github.com/coderaiser/supermenu.git"
   },
   "scripts": {
     "lint": "redrun lint:*",
