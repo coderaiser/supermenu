@@ -1,8 +1,7 @@
 {
-  "name": "menu",
-  "version": "1.0.2",
-  "private": true,
-  "branch": "gh-pages",
+  "name": "supermenu",
+  "version": "1.0.0",
+  "main": "legacy/supermenu.js",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Simple css-based multillevel context menu",
   "homepage": "http://coderaiser.github.io/menu",
@@ -11,23 +10,35 @@
     "url": "git://github.com/coderaiser/menu-io.git"
   },
   "scripts": {
-    "test": "npm run lint:css && gulp default",
-    "lint:css": "stylelint menu-io.css",
-    "wisdom": "npm test"
+    "lint": "redrun lint:*",
+    "lint:js": "eslint lib",
+    "lint:css": "stylelint css",
+    "build": "redrun build:*",
+    "prebuild": "redrun clean",
+    "build-progress": "webpack --progress",
+    "build:client": "npm run build-progress -- --mode production",
+    "build:js": "redrun 6to5 legacy:index",
+    "legacy:index": "echo \"module.exports = require('./supermenu');\" > legacy/index.js",
+    "clean": "rimraf dist legacy",
+    "wisdom": "npm run build",
+    "6to5": "babel -d legacy lib"
   },
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "gulp-concat": "^2.2.0",
-    "gulp-jshint": "^1.5.3",
-    "gulp-minify-css": "^0.3.1",
-    "gulp-recess": "^0.3.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-uglify": "^0.2.1",
-    "stylelint": "^4.4.0",
-    "stylelint-config-standard": "^3.0.0"
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "clean-css-loader": "^0.1.4",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "redrun": "^6.0.4",
+    "style-loader": "^0.21.0",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
   },
   "license": "MIT",
-  "engines": {
-    "node": ">=0.12"
+  "dependencies": {
+    "rendy": "^2.0.0"
   }
 }
