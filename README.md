@@ -6,7 +6,6 @@ Supermenu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
 Simple css-based context menu made for [Cloud Commander](http://cloudcmd.io).
 
 Little bit better then other people do :).
-So to see at work look [here](http://jsfiddle.net/coderaiser/mAUUz/).
 
 # How come?
 
