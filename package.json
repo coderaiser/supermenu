@@ -28,7 +28,7 @@
     "babel-preset-env": "^1.6.1",
     "clean-css-loader": "^1.0.1",
     "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.1",
     "redrun": "^6.0.4",
     "style-loader": "^0.21.0",
     "stylelint": "^9.2.0",
