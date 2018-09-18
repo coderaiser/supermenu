@@ -23,9 +23,10 @@
     "6to5": "babel -d legacy lib"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
     "clean-css-loader": "^1.0.1",
     "css-loader": "^0.28.11",
     "eslint": "^5.0.1",
