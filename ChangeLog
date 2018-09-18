@@ -1,3 +1,15 @@
+2018.09.18, v2.1.0
+
+feature:
+- (package) webpack-cli v3.1.0
+- (package) css-loader v1.0.0
+- (package) style-loader v0.23.0
+- (package) babel v7.0.0
+- (supermenu) add @cloudcmd/create-element
+- (package) eslint v5.0.1
+- (package) clean-css-loader v1.0.1
+
+
 2018.04.27, v2.0.0
 
 fix:
