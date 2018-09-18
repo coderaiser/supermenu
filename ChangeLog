@@ -1,3 +1,9 @@
+2018.09.18, v2.1.1
+
+fix:
+- (package) uniq menu: @cloudcmd/create-element v1.1.0
+
+
 2018.09.18, v2.1.0
 
 feature:

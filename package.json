@@ -1,6 +1,6 @@
 {
   "name": "supermenu",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "legacy/supermenu.js",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Simple css-based multillevel context menu",
