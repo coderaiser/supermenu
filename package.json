@@ -39,7 +39,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@cloudcmd/create-element": "^1.0.0",
+    "@cloudcmd/create-element": "^1.1.0",
     "rendy": "^2.0.0"
   }
 }
