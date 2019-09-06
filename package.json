@@ -1,7 +1,7 @@
 {
   "name": "supermenu",
   "version": "2.1.2",
-  "main": "legacy/supermenu.js",
+  "main": "lib/supermenu.js",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Simple css-based multillevel context menu",
   "repository": {
@@ -9,18 +9,12 @@
     "url": "git://github.com/coderaiser/supermenu.git"
   },
   "scripts": {
-    "lint": "redrun lint:*",
-    "lint:js": "eslint lib",
-    "lint:css": "stylelint css",
-    "build": "redrun build:*",
-    "prebuild": "redrun clean",
-    "build-progress": "webpack --progress",
-    "build:client": "npm run build-progress -- --mode production",
-    "build:js": "redrun 6to5 legacy:index",
-    "legacy:index": "echo \"module.exports = require('./supermenu');\" > legacy/index.js",
-    "clean": "rimraf dist legacy",
-    "wisdom": "npm run build",
-    "6to5": "babel -d legacy lib"
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "lint:js": "madrun lint:js",
+    "lint:css": "madrun lint:css",
+    "build": "madrun build",
+    "prepublishOnly": "madrun prepublishOnly"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -30,6 +24,7 @@
     "clean-css-loader": "^2.0.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.3.0",
+    "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-putout": "^2.0.0",
     "madrun": "^3.0.1",
     "putout": "^5.11.1",
