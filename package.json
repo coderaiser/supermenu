@@ -29,7 +29,7 @@
     "babel-loader": "^8.0.0",
     "clean-css-loader": "^2.0.0",
     "css-loader": "^3.2.0",
-    "eslint": "^5.0.1",
+    "eslint": "^6.3.0",
     "eslint-plugin-putout": "^2.0.0",
     "madrun": "^3.0.1",
     "putout": "^5.11.1",
