@@ -30,7 +30,7 @@
     "putout": "^5.11.1",
     "redrun": "^7.0.2",
     "style-loader": "^1.0.0",
-    "stylelint": "^10.1.0",
+    "stylelint": "^11.0.0",
     "stylelint-config-standard": "^18.2.0",
     "webpack": "^4.6.0",
     "webpack-cli": "^3.1.0"
