@@ -1,4 +1,7 @@
 {
+    "env": {
+        "browser": true
+    },
     "extends": [
         "plugin:putout/recommended",
         "plugin:node/recommended"

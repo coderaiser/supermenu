@@ -12,28 +12,17 @@
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
     "lint:js": "madrun lint:js",
-    "lint:css": "madrun lint:css",
-    "build": "madrun build",
-    "prepublishOnly": "madrun prepublishOnly"
+    "lint:css": "madrun lint:css"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "babel-loader": "^8.0.0",
-    "clean-css-loader": "^2.0.0",
-    "css-loader": "^3.2.0",
     "eslint": "^6.3.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-putout": "^2.0.0",
     "madrun": "^3.0.1",
     "putout": "^6.0.0",
     "redrun": "^7.0.2",
-    "style-loader": "^1.0.0",
     "stylelint": "^11.0.0",
-    "stylelint-config-standard": "^19.0.0",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^3.1.0"
+    "stylelint-config-standard": "^19.0.0"
   },
   "license": "MIT",
   "dependencies": {
