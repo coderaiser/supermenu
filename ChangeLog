@@ -1,3 +1,13 @@
+2019.09.18, v3.0.0
+
+feature:
+- (supermenu) drop support of dist
+- (package) putout v6.0.0
+- (package) stylelint-config-standard v19.0.0
+- (package) @cloudcmd/create-element v2.0.0
+- (package) stylelint v11.0.0
+
+
 2019.09.06, v2.2.0
 
 feature:
