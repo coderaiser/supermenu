@@ -19,7 +19,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^3.2.1",
     "madrun": "^5.4.2",
-    "putout": "^6.0.0",
+    "putout": "^7.13.1",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0"
   },
