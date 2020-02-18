@@ -18,9 +18,8 @@
     "eslint": "^6.3.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^2.0.0",
-    "madrun": "^3.0.1",
+    "madrun": "^5.4.2",
     "putout": "^6.0.0",
-    "redrun": "^7.0.2",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0"
   },
