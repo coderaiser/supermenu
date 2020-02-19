@@ -19,18 +19,18 @@ const rules = [{
 const optimization = {
     minimize: true,
     minimizer: [
-      new TerserPlugin({
-        extractComments: true,
-      }),
+        new TerserPlugin({
+            extractComments: true,
+        }),
     ],
-}
+};
 
 const filename = `[name].min.js`;
 
 module.exports = {
     devtool,
     entry: {
-        'supermenu': `${dir}/supermenu.js`,
+        supermenu: `${dir}/supermenu.js`,
     },
     optimization,
     output: {

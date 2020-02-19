@@ -1,7 +1,6 @@
 'use strict';
 
 const {run} = require('madrun');
-const {version} = require('./package');
 
 module.exports = {
     'lint': () => run('lint:*'),
@@ -16,6 +15,6 @@ module.exports = {
 };
 
 function upload(name) {
-    return `putasset -o coderaiser -r supermenu -t v${version} -f ${name}`;
+    return 'putasset -o coderaiser -r supermenu -t v`version`' + ` -f ${name}`;
 }
 
