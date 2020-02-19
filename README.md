@@ -27,18 +27,25 @@ const menu = supermenu({
     'item name': () => {
     }
 }
+
+// show menu on right mouse click
+menu.addContextMenuListener();
 ```
 
 You could use element and (or) options parameters if you need to.
 
 ```js
 const element = document.body;
+const log = (msg) => () => console.log(msg);
 
 const options = {
     icon        : true, /* add class icon-item-name */
-    beforeClose : alert,
-    beforeShow  : alert,
-    beforeClick : alert,
+    beforeShow  : log('before show'),
+    afterShow   : log('after show'),
+    beforeHide  : log('beforeHide'),
+    afterHide   : log('after hide'),
+    beforeClick : log('before click'),
+    afterClick  : log('after click'),
     name        : 'name of menu' /* if you want use a couple menu on one element */
 };
 
@@ -47,7 +54,7 @@ const menu = supermenu(element, options, {
 });
 ```
 
-Look for `examples` directory or copy example from bottom:
+Example of multilevel menu:
 
 ```js
 const menu = supermenu({
