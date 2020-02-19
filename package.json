@@ -12,16 +12,27 @@
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
     "lint:js": "madrun lint:js",
-    "lint:css": "madrun lint:css"
+    "lint:css": "madrun lint:css",
+    "build": "madrun build",
+    "wisdom": "madrun wisdom",
+    "upload:main": "madrun upload:main",
+    "upload:main:map": "madrun upload:main:map"
   },
   "devDependencies": {
+    "clean-css-loader": "^2.0.0",
+    "css-loader": "^3.4.2",
     "eslint": "^6.3.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^3.2.1",
     "madrun": "^5.4.2",
+    "putasset": "^5.0.0",
     "putout": "^7.13.1",
+    "style-loader": "^1.1.3",
     "stylelint": "^13.2.0",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "terser-webpack-plugin": "^2.3.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   },
   "license": "MIT",
   "dependencies": {

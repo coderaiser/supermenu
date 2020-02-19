@@ -1,7 +1,4 @@
 .*
-example
-.yarn-error.log
-
-madrun.js
 dist
+webpack.config.js
 
