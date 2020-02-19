@@ -1,3 +1,18 @@
+2020.02.19, v4.0.0
+
+feature:
+- (supermenu) add build
+- (supermenu) beforeShow: notShow -> isShow
+- (supermenu) add addContextMenuListener
+- (supermenu) add class
+- (package) putout v7.13.1
+- (package) eslint-plugin-putout v3.2.1
+- (package) madrun v5.4.2
+- (package) stylelint v13.2.0
+- (package) stylelint-config-standard v20.0.0
+- (package) eslint-plugin-node v11.0.0
+
+
 2019.09.18, v3.0.0
 
 feature:
