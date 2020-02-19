@@ -9,7 +9,8 @@ module.exports = {
     'lint:js': () => 'putout lib .madrun.js *.js',
     'lint:css': () => 'stylelint css',
     'build': () => 'webpack --progress --mode production',
-    'wisdom': () => run(['build', 'upload:*']),
+    'wisdom': () => run('build'),
+    'wisdom:done': () => run('upload:*'),
     'upload:main': () => upload('dist/supermenu.min.js'),
     'upload:main:map': () => upload('dist/supermenu.min.js.map'),
 };

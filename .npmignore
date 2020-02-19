@@ -1,4 +1,5 @@
 .*
 dist
 webpack.config.js
+yarn-error.log
 
