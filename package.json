@@ -24,7 +24,7 @@
     "css-loader": "^5.0.0",
     "eslint": "^6.3.0",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^3.2.1",
+    "eslint-plugin-putout": "^5.2.0",
     "madrun": "^7.0.4",
     "putasset": "^5.0.0",
     "putout": "^10.2.1",
