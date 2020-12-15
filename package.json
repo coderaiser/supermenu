@@ -27,7 +27,7 @@
     "eslint-plugin-putout": "^6.10.0",
     "madrun": "^8.0.5",
     "putasset": "^5.0.0",
-    "putout": "^10.2.1",
+    "putout": "^12.5.1",
     "style-loader": "^2.0.0",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0",
