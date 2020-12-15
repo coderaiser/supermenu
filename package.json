@@ -29,8 +29,6 @@
     "putasset": "^5.0.0",
     "putout": "^12.5.1",
     "style-loader": "^2.0.0",
-    "stylelint": "^13.2.0",
-    "stylelint-config-standard": "^20.0.0",
     "terser-webpack-plugin": "^5.0.0",
     "version-io": "^4.0.1",
     "webpack": "^5.1.3",

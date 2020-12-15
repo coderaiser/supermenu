@@ -1,23 +1,23 @@
-Supermenu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
-====
-[BuildStatusURL]:           https://travis-ci.org/coderaiser/menu-io  "Build Status"
-[BuildStatusIMGURL]:        https://api.travis-ci.org/coderaiser/menu-io.png?branch=gh-pages
+# Supermenu [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
+
+[BuildStatusURL]: https://travis-ci.org/coderaiser/menu-io "Build Status"
+[BuildStatusIMGURL]: https://api.travis-ci.org/coderaiser/menu-io.png?branch=gh-pages
 
 Simple css-based context menu made for [Cloud Commander](http://cloudcmd.io).
 
 Little bit better then other people do :).
 
-# How come?
+## How come?
 
 Tired to use js based libraries which use jquery and `.hover` classes insteed of `:hover` pseudo-selectors.
 
-# Install
+## Install
 
 ```
 npm i supermenu
 ```
 
-# How use?
+## How use?
 
 Add little JavaScript:
 
@@ -25,8 +25,8 @@ Add little JavaScript:
 const supermenu = require('supermenu');
 const menu = supermenu({
     'item name': () => {
-    }
-}
+    },
+});
 
 // show menu on right mouse click
 menu.addContextMenuListener();
@@ -46,11 +46,12 @@ const options = {
     afterHide   : log('after hide'),
     beforeClick : log('before click'),
     afterClick  : log('after click'),
-    name        : 'name of menu' /* if you want use a couple menu on one element */
+    name        : 'name of menu', /* if you want use a couple menu on one element */
 };
 
 const menu = supermenu(element, options, {
     'item name': () => {
+    },
 });
 ```
 
@@ -58,24 +59,25 @@ Example of multilevel menu:
 
 ```js
 const menu = supermenu({
-    help: function() {
+    help() {
         alert('*help');
     },
     upload: {
         github: {
-            gist: function() {
+            gist() {
                 alert('*gist');
             },
-            main: function() {
+            main() {
                 alert('*main');
-            }
+            },
         },
-        dropbox: function() {
+        dropbox() {
             alert('*dropbox');
-        }
-    }
+        },
+    },
 });
 ```
 
-# License
+## License
+
 MIT

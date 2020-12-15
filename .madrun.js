@@ -3,10 +3,8 @@
 const {run} = require('madrun');
 
 module.exports = {
-    'lint': () => run('lint:*'),
-    'fix:lint': () => run('lint:*', '--fix'),
-    'lint:js': () => 'putout lib .madrun.js *.js',
-    'lint:css': () => 'stylelint css',
+    'fix:lint': () => run('lint', '--fix'),
+    'lint': () => 'putout .',
     'build': () => 'webpack --progress --mode production',
     'wisdom': () => run('build'),
     'wisdom:done': () => run('upload:*'),
