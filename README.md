@@ -1,4 +1,4 @@
-# Supermenu 
+# Supermenu
 
 Simple css-based context menu made for [Cloud Commander](http://cloudcmd.io).
 Little bit better then others :).
@@ -25,7 +25,6 @@ const menu = supermenu({
 
 // show menu on right mouse click
 menu.addContextMenuListener();
-
 ```
 
 You could use element and (or) options parameters if you need to.
@@ -49,7 +48,6 @@ const options = {
 const menu = supermenu(element, options, {
     'item name': () => {},
 });
-
 ```
 
 Example of multilevel menu:
@@ -73,7 +71,6 @@ const menu = supermenu({
         },
     },
 });
-
 ```
 
 ## License
