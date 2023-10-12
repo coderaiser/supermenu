@@ -1,3 +1,8 @@
+2023.10.12, v4.1.1
+
+fix:
+- 7c0395b supermenu: optional chaining
+
 2023.10.12, v4.1.0
 
 feature:
