@@ -1,42 +1,44 @@
 {
-  "name": "supermenu",
-  "version": "4.0.2",
-  "main": "lib/supermenu.js",
-  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "Simple css-based multillevel context menu",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/coderaiser/supermenu.git"
-  },
-  "scripts": {
-    "lint": "madrun lint",
-    "fix:lint": "madrun fix:lint",
-    "lint:js": "madrun lint:js",
-    "lint:css": "madrun lint:css",
-    "build": "madrun build",
-    "wisdom": "madrun wisdom",
-    "wisdom:done": "madrun wisdom:done",
-    "upload:main": "madrun upload:main",
-    "upload:main:map": "madrun upload:main:map"
-  },
-  "devDependencies": {
-    "clean-css-loader": "^2.0.0",
-    "css-loader": "^5.0.0",
-    "eslint": "^7.11.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^20.0.0",
-    "madrun": "^9.4.0",
-    "putasset": "^5.0.0",
-    "putout": "^32.2.1",
-    "style-loader": "^2.0.0",
-    "terser-webpack-plugin": "^5.0.0",
-    "version-io": "^4.0.1",
-    "webpack": "^5.1.3",
-    "webpack-cli": "^4.0.0"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "@cloudcmd/create-element": "^2.0.0",
-    "rendy": "^4.1.3"
-  }
+    "name": "supermenu",
+    "version": "4.0.2",
+    "type": "commonjs",
+    "main": "lib/supermenu.js",
+    "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+    "description": "Simple css-based multillevel context menu",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/coderaiser/supermenu.git"
+    },
+    "scripts": {
+        "lint": "madrun lint",
+        "fix:lint": "madrun fix:lint",
+        "lint:js": "madrun lint:js",
+        "lint:css": "madrun lint:css",
+        "build": "madrun build",
+        "wisdom": "madrun wisdom",
+        "wisdom:done": "madrun wisdom:done",
+        "upload:main": "madrun upload:main",
+        "upload:main:map": "madrun upload:main:map"
+    },
+    "devDependencies": {
+        "clean-css-loader": "^2.0.0",
+        "css-loader": "^5.0.0",
+        "eslint": "^7.11.0",
+        "eslint-plugin-n": "^16.2.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-putout": "^20.0.0",
+        "madrun": "^9.4.0",
+        "putasset": "^5.0.0",
+        "putout": "^32.2.1",
+        "style-loader": "^2.0.0",
+        "terser-webpack-plugin": "^5.0.0",
+        "version-io": "^4.0.1",
+        "webpack": "^5.1.3",
+        "webpack-cli": "^4.0.0"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@cloudcmd/create-element": "^2.0.0",
+        "rendy": "^4.1.3"
+    }
 }

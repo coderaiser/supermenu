@@ -15,4 +15,3 @@ module.exports = {
 function upload(name) {
     return 'putasset -o coderaiser -r supermenu -t v`version`' + ` -f ${name}`;
 }
-

@@ -3,5 +3,7 @@ npm-debug.log
 yarn-error.log
 
 dist
-.putoutcache
 
+.idea
+*.swp
+coverage

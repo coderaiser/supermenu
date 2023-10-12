@@ -24,12 +24,12 @@ Add little JavaScript:
 ```js
 const supermenu = require('supermenu');
 const menu = supermenu({
-    'item name': () => {
-    },
+    'item name': () => {},
 });
 
 // show menu on right mouse click
 menu.addContextMenuListener();
+
 ```
 
 You could use element and (or) options parameters if you need to.
@@ -39,20 +39,21 @@ const element = document.body;
 const log = (msg) => () => console.log(msg);
 
 const options = {
-    icon        : true, /* add class icon-item-name */
-    beforeShow  : log('before show'),
-    afterShow   : log('after show'),
-    beforeHide  : log('beforeHide'),
-    afterHide   : log('after hide'),
-    beforeClick : log('before click'),
-    afterClick  : log('after click'),
-    name        : 'name of menu', /* if you want use a couple menu on one element */
+    icon: true,
+    /* add class icon-item-name */
+    beforeShow: log('before show'),
+    afterShow: log('after show'),
+    beforeHide: log('beforeHide'),
+    afterHide: log('after hide'),
+    beforeClick: log('before click'),
+    afterClick: log('after click'),
+    name: 'name of menu', /* if you want use a couple menu on one element */
 };
 
 const menu = supermenu(element, options, {
-    'item name': () => {
-    },
+    'item name': () => {},
 });
+
 ```
 
 Example of multilevel menu:
@@ -76,6 +77,7 @@ const menu = supermenu({
         },
     },
 });
+
 ```
 
 ## License
