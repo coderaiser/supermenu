@@ -23,7 +23,7 @@
     "devDependencies": {
         "clean-css-loader": "^2.0.0",
         "css-loader": "^5.0.0",
-        "eslint": "^7.11.0",
+        "eslint": "^8.51.0",
         "eslint-plugin-n": "^16.2.0",
         "eslint-plugin-node": "^11.0.0",
         "eslint-plugin-putout": "^20.0.0",
