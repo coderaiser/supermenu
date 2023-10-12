@@ -21,7 +21,7 @@
         "upload:main:map": "madrun upload:main:map"
     },
     "devDependencies": {
-        "clean-css-loader": "^2.0.0",
+        "clean-css-loader": "^4.2.1",
         "css-loader": "^6.8.1",
         "eslint": "^8.51.0",
         "eslint-plugin-n": "^16.2.0",
