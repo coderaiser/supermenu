@@ -28,7 +28,7 @@
         "eslint-plugin-node": "^11.0.0",
         "eslint-plugin-putout": "^20.0.0",
         "madrun": "^9.4.0",
-        "putasset": "^5.0.0",
+        "putasset": "^6.0.1",
         "putout": "^32.2.1",
         "style-loader": "^2.0.0",
         "terser-webpack-plugin": "^5.0.0",
