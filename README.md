@@ -5,7 +5,7 @@ Little bit better then others :).
 
 ## How come?
 
-Tired to use js based libraries which use jquery and `.hover` classes insteed of `:hover` pseudo-selectors.
+Tired of using js-based libraries that depends on jquery and `.hover` classes insteed of `:hover` pseudo-selectors.
 
 ## Install
 
@@ -15,7 +15,7 @@ npm i supermenu
 
 ## How use?
 
-Add little JavaScript:
+Add little bit of JavaScript:
 
 ```js
 const supermenu = require('supermenu');
