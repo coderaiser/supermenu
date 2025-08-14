@@ -25,11 +25,8 @@
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-putout": "^28.0.4",
     "madrun": "^11.0.2",
-    "putasset": "^7.0.0",
     "putout": "^40.5.2",
-    "version-io": "^5.0.0",
-    "webpack": "^5.1.3",
-    "webpack-cli": "^6.0.1"
+    "version-io": "^5.0.0"
   },
   "license": "MIT",
   "dependencies": {
