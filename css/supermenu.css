@@ -39,7 +39,7 @@
     float: right;
 }
 
-.menu-item:hover {
+.menu-item:hover, .menu-item-selected {
     background-color: #e3f2ff;
 }
 
