@@ -21,17 +21,12 @@
     "upload:main:map": "madrun upload:main:map"
   },
   "devDependencies": {
-    "clean-css-loader": "^4.2.1",
-    "css-loader": "^7.1.2",
     "eslint": "^9.33.0",
     "eslint-plugin-n": "^17.21.3",
-    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^28.0.4",
     "madrun": "^11.0.2",
     "putasset": "^7.0.0",
     "putout": "^40.5.2",
-    "style-loader": "^4.0.0",
-    "terser-webpack-plugin": "^5.0.0",
     "version-io": "^5.0.0",
     "webpack": "^5.1.3",
     "webpack-cli": "^6.0.1"
