@@ -7,7 +7,7 @@
   "description": "Simple css-based multillevel context menu",
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/supermenu.git"
+    "url": "git+https://github.com/coderaiser/supermenu.git"
   },
   "scripts": {
     "lint": "madrun lint",
