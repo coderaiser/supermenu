@@ -1,6 +1,6 @@
 {
   "name": "supermenu",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "type": "module",
   "main": "lib/supermenu.js",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
