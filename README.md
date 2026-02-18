@@ -19,6 +19,7 @@ Add little bit of JavaScript:
 
 ```js
 import {supermenu} from 'supermenu';
+
 const menu = supermenu({
     'item name': () => {},
 });

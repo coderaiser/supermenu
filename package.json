@@ -1,7 +1,7 @@
 {
   "name": "supermenu",
   "version": "4.1.1",
-  "type": "commonjs",
+  "type": "module",
   "main": "lib/supermenu.js",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Simple css-based multillevel context menu",
