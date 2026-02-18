@@ -1,3 +1,25 @@
+2026.02.18, v5.0.0
+
+feature:
+- c214a7c supermenu: migrate to ESM
+- 357017b supermenu: version-io v6.1.2
+- 7763dea supermenu: putout v42.0.5
+- ea4f1fe supermenu: madrun v13.0.0
+- 22bed0c supermenu: eslint-plugin-putout v31.0.0
+- fd098ae supermenu: eslint v10.0.0
+- 0067b17 supermenu: rendy v5.0.0
+- 9affb2f supermenu: webpack-cli v6.0.1
+- 6c9cc70 supermenu: version-io v5.0.0
+- 63bcee1 supermenu: style-loader v4.0.0
+- 61db9fd supermenu: putout v40.5.2
+- 17c651d supermenu: putasset v7.0.0
+- 954bab6 supermenu: madrun v11.0.2
+- 266d104 supermenu: eslint-plugin-putout v28.0.4
+- 6eb7756 supermenu: eslint-plugin-n v17.21.3
+- 913f6ea supermenu: eslint v9.33.0
+- 30457a4 supermenu: css-loader v7.1.2
+- 9677bf1 style: .menu-item-selected
+
 2023.10.12, v4.1.1
 
 fix:

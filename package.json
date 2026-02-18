@@ -1,6 +1,6 @@
 {
   "name": "supermenu",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "type": "module",
   "main": "lib/supermenu.js",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
@@ -10,15 +10,8 @@
     "url": "git+https://github.com/coderaiser/supermenu.git"
   },
   "scripts": {
-    "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "lint:js": "madrun lint:js",
-    "lint:css": "madrun lint:css",
-    "build": "madrun build",
-    "wisdom": "madrun wisdom",
-    "wisdom:done": "madrun wisdom:done",
-    "upload:main": "madrun upload:main",
-    "upload:main:map": "madrun upload:main:map"
+    "lint": "madrun lint"
   },
   "devDependencies": {
     "eslint": "^10.0.0",
