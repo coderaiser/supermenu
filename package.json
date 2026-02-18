@@ -24,7 +24,7 @@
     "eslint": "^10.0.0",
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-putout": "^31.0.0",
-    "madrun": "^11.0.2",
+    "madrun": "^13.0.0",
     "putout": "^40.5.2",
     "version-io": "^5.0.0"
   },
