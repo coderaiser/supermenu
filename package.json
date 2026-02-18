@@ -21,7 +21,7 @@
     "upload:main:map": "madrun upload:main:map"
   },
   "devDependencies": {
-    "eslint": "^9.33.0",
+    "eslint": "^10.0.0",
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-putout": "^28.0.4",
     "madrun": "^11.0.2",
