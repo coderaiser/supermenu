@@ -1,7 +1,10 @@
-.*
-dist
-webpack.config.js
-yarn-error.log
-
-coverage
 *.config.*
+*.log
+*.loc
+
+.*
+
+webpack.config.js
+
+dist
+coverage

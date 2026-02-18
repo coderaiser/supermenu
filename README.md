@@ -18,7 +18,7 @@ npm i supermenu
 Add little bit of JavaScript:
 
 ```js
-const supermenu = require('supermenu');
+import {supermenu} from 'supermenu';
 const menu = supermenu({
     'item name': () => {},
 });

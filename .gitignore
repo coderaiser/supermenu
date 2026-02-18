@@ -1,9 +1,9 @@
-node_modules
-npm-debug.log
-yarn-error.log
-
-dist
+*.swp
+*.log
+*.lock
 
 .idea
-*.swp
+
+node_modules
+dist
 coverage
